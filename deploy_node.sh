@@ -111,7 +111,7 @@ config_v2ray() {
 	read -p "$(echo -e "$yellow V2Ray额外ID$none(默认：${cyan}16$none)")：" alter_Id
 		[ -z "$alter_Id" ] && alter_Id="16"
 	read -p "数据库地址，如 1.1.1.1 ：" db_Host
-	read -p "$(echo -e "$yellow数据库名称$none(默认：${cyan}3306$none)")：" db_Port
+	read -p "$(echo -e "$yellow数据库端口$none(默认：${cyan}3306$none)")：" db_Port
 		[ -z "$db_Port" ] && db_Port="3306"
 	read -p "$(echo -e "$yellow数据库名称$none(默认：${cyan}ssrpanel$none)")：" db_Name
 		[ -z "$db_Name" ] && db_Name="ssrpanel"
@@ -145,8 +145,8 @@ install_v2ray(){
 	echo "logs directory: /var/log/v2ray"
 	echo "configuration directory: /etc/v2ray"
 
-	curl -L -s https://raw.githubusercontent.com/828768/Shell/master/v2ray-ssrpanel-plugin-install.sh | bash
-	wget --no-check-certificate -O config.json https://raw.githubusercontent.com/828768/Shell/master/resource/v2ray-config.json
+	curl -L -s https://raw.githubusercontent.com/sonifly/Shell/master/v2ray-ssrpanel-plugin-install.sh | bash
+	wget --no-check-certificate -O config.json https://raw.githubusercontent.com/sonifly/Shell/master/resource/v2ray-config.json
 	sed -i -e "s/v2ray_Port/$v2ray_Port/g" config.json
 	sed -i -e "s/alter_Id/$alter_Id/g" config.json
 	sed -i -e "s/forward_Path/$forward_Path/g" config.json
@@ -217,11 +217,11 @@ install_caddy() {
 	echo -e "Caddy安装完成！"
 
 	# 放个本地游戏网站
-	wget --no-check-certificate -O www.zip https://raw.githubusercontent.com/828768/Shell/master/resource/www.zip
+	wget --no-check-certificate -O www.zip https://raw.githubusercontent.com/sonifly/Shell/master/resource/www.zip
 	unzip -n www.zip -d /srv/ && rm -f www.zip
 	# 修改配置
 	mkdir -p /etc/caddy/
-	wget --no-check-certificate -O Caddyfile https://raw.githubusercontent.com/828768/Shell/master/resource/Caddyfile
+	wget --no-check-certificate -O Caddyfile https://raw.githubusercontent.com/sonifly/Shell/master/resource/Caddyfile
 	if [ $email == y ]; then
 		local email=$(((RANDOM << 22)))
 		sed -i -e "s/email/$email@gmail.com/g" Caddyfile
