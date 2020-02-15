@@ -10,7 +10,7 @@
 # 3: Network error
 
 CUR_VER=""
-NEW_VER="v1.0.0"
+NEW_VER="v0.4.0"
 ARCH=""
 VDIS="64"
 ZIPFILE="/tmp/v2ray/v2ray.zip"
@@ -119,7 +119,7 @@ downloadV2Ray(){
     rm -rf /tmp/v2ray
     mkdir -p /tmp/v2ray
     colorEcho ${BLUE} "Downloading V2Ray."
-    DOWNLOAD_LINK="https://github.com/sonifly/ssrpanel-v2ray-plugin/releases/download/${NEW_VER}/v2ray-linux-${VDIS}.zip"
+    DOWNLOAD_LINK="https://github.com/sonifly/v2ray-poseidon/releases/download/${NEW_VER}/v2ray-linux-${VDIS}.zip"
     curl ${PROXY} -L -H "Cache-Control: no-cache" -o ${ZIPFILE} ${DOWNLOAD_LINK}
     if [ $? != 0 ];then
         colorEcho ${RED} "Failed to download! Please check your network or try again."
