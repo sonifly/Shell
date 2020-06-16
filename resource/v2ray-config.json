@@ -68,7 +68,7 @@
     }
   },
 
-  "poseidon": {
+  "ssrpanel": {
     // Node id on your SSR Panel
     "nodeId": node_Id,
     // every N seconds
